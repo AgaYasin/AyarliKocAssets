@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayarlı Koç - LGS & YKS Koçluk Hizmeti</title>
+
+    <!-- Calendly Pop-up için gerekli CSS dosyası -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        
+        /* === TEMEL SAYFA AYARLARI === */
+        :root {
+            --primary-color: #1a73e8;
+            --light-background: #f8f9fa;
+            --text-dark: #212529;
+            --text-light: #495057;
+            --font-primary: 'Montserrat', sans-serif;
+            --font-display: 'Playfair Display', serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-primary);
+            background-color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            max-width: 100vw; /* Ensure body doesn't exceed viewport width */
+        }
+
+        * {
+            box-sizing: border-box; /* Ensure padding/border included in width calculations */
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: var(--font-display);
+        }
+
+        /* === HERO BÖLÜMÜ === */
+        .hero-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 100vw; /* Prevent overflow */
+            height: 100vh;
+            padding: 30px 40px;
+            box-sizing: border-box;
+            text-align: center;
+            color: white;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://lh7-rt.googleusercontent.com/sitesz/AClOY7rXZnkAcZM918CC5_CHLIBT7bUsJh9WCa_2CfPHcY1aOzZnGNNcRpzYPEVpSYqjtAqFueWKFDAeQg7CzPf23pTEp4Mz7Mq1Nj6l4oP0jfDIDM8V9ViCbN3W4Y5Cu-C5V71rhk_s826bqTsE3ifUpJbBj1gG3QUDvdaSYe8EDNF_0bnqdws?key=MXQe3UlO6HPLJlj-Fy8uYA');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden; /* Prevent content overflow */
+        }
+
+        .hero-section .header-branding {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: 100%; /* Ensure it doesn't exceed container */
+            justify-content: flex-start;
+            gap: 15px;
+            flex-wrap: wrap; /* Allow wrapping on very small screens */
+        }
+
+        .hero-section .logo {
+            height: clamp(45px, 5vw, 60px);
+            width: auto;
+            flex-shrink: 0; /* Prevent logo from shrinking */
+        }
+
+        .hero-section .brand-name {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 700;
+            white-space: nowrap;
+            overflow: hidden; /* Prevent text overflow */
+            text-overflow: ellipsis; /* Add ellipsis if text is too long */
+        }
+
+        .hero-section .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-grow: 1;
+            justify-content: center;
+            width: 100%;
+            max-width: 100%; /* Prevent overflow */
+            padding: 0 10px; /* Add some padding */
+        }
+
+        .hero-section .hero-content h1 {
+            font-size: clamp(2.2rem, 5.5vw, 3.5rem);
+            font-weight: 700;
+            margin: 20px 0 15px 0;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            line-height: 1.2;
+            max-width: 950px;
+            width: 100%; /* Ensure full width usage */
+            word-wrap: break-word; /* Break long words if needed */
+        }
+
+        .hero-section .hero-content p {
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            max-width: 700px;
+            width: 100%; /* Ensure full width usage */
+            margin: 0 0 40px 0;
+            word-wrap: break-word; /* Break long words if needed */
+        }
+
+        .hero-section .cta-button {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 14px 35px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            white-space: nowrap; /* Prevent button text wrapping */
+            max-width: calc(100vw - 80px); /* Ensure button doesn't exceed viewport */
+            text-align: center;
+        }
+
+        .hero-section .cta-button:hover {
+            background-color: white;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        /* === DİĞER BÖLÜMLER İÇİN GENEL KAPAYICI === */
+        .content-section {
+            width: 100%;
+            max-width: 100vw; /* Prevent overflow */
+            padding: 80px 20px;
+            overflow: hidden; /* Prevent content overflow */
+        }
+
+        .content-section h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            color: var(--text-dark);
+            margin-bottom: 50px;
+            word-wrap: break-word; /* Break long words if needed */
+        }
+
+        .content-section .container {
+            max-width: 850px;
+            width: 100%; /* Ensure full width usage */
+            margin: 0 auto;
+            padding: 0 10px; /* Add some padding */
+        }
+
+        /* === HAKKIMDA BÖLÜMÜ === */
+        #about-me {
+            background-color: #ffffff;
+        }
+
+        #about-me p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            text-align: center;
+            word-wrap: break-word; /* Break long words if needed */
+        }
+
+        /* === BAŞARI HİKAYELERİ BÖLÜMÜ === */
+        #testimonials {
+            background-color: var(--light-background);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            width: 100%; /* Ensure full width usage */
+            margin: 0 auto;
+            padding: 0 10px; /* Add some padding */
+        }
+
+        .testimonial-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
+            padding: 35px 30px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: transform .3s ease, box-shadow .3s ease;
+            word-wrap: break-word; /* Break long words if needed */
+            overflow: hidden; /* Prevent content overflow */
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-card .stars {
+            color: #ffc107;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-card blockquote {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text-light);
+            margin: 0;
+            flex-grow: 1;
+            position: relative;
+            word-wrap: break-word; /* Break long words if needed */
+        }
+
+        .testimonial-card blockquote::before {
+            content: '"';
+            font-family: var(--font-display);
+            font-size: 7rem;
+            color: #e9ecef;
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        .testimonial-card blockquote p {
+            position: relative;
+            z-index: 2;
+            word-wrap: break-word; /* Break long words if needed */
+        }
+
+        .testimonial-author {
+            margin-top: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .author-icon svg {
+            width: 34px;
+            height: 34px;
+            fill: #6c757d;
+        }
+
+        .author-details {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            word-wrap: break-word; /* Break long words if needed */
+        }
+
+        /* === SSS (FAQ) BÖLÜMÜ === */
+        #faq {
+            background-color: #ffffff;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #dee2e6;
+            width: 100%; /* Ensure full width usage */
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            text-align: left;
+            padding: 20px 5px;
+            font-family: var(--font-primary);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            word-wrap: break-word; /* Break long words if needed */
+            overflow-wrap: break-word; /* Additional word breaking */
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.8rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+            flex-shrink: 0; /* Prevent shrinking */
+            margin-left: 10px; /* Add some space */
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            width: 100%; /* Ensure full width usage */
+        }
+
+        .faq-answer-content {
+            padding: 0 10px 25px 10px;
+            color: var(--text-light);
+            word-wrap: break-word; /* Break long words if needed */
+            overflow-wrap: break-word; /* Additional word breaking */
+        }
+
+        .faq-answer-content p,
+        .faq-answer-content ul {
+            margin-bottom: 1em;
+            word-wrap: break-word; /* Break long words if needed */
+        }
+
+        .faq-answer-content ul {
+            padding-left: 20px;
+        }
+
+        /* === RESPONSIVE AYARLAR === */
+        @media (max-width: 992px) {
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+                max-width: 600px;
+                gap: 20px; /* Reduce gap on smaller screens */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .content-section {
+                padding: 60px 15px;
+            }
+
+            .hero-section {
+                padding: 20px 15px; /* Reduce padding on mobile */
+            }
+
+            .hero-section h1 {
+                font-size: clamp(2.0rem, 7vw, 2.5rem);
+            }
+
+            .hero-section p {
+                font-size: clamp(1.0rem, 4vw, 1.2rem);
+            }
+
+            .hero-section .cta-button {
+                padding: 12px 25px; /* Smaller button on mobile */
+                font-size: 0.85rem;
+                max-width: calc(100vw - 60px); /* Adjust max width for mobile */
+            }
+
+            .testimonial-card {
+                padding: 25px 20px; /* Reduce padding on mobile */
+            }
+
+            .faq-question {
+                font-size: 1rem; /* Smaller font on mobile */
+                padding: 15px 5px;
+            }
+
+            .content-section .container {
+                padding: 0 5px; /* Reduce padding on mobile */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section {
+                padding: 15px 10px; /* Even smaller padding on very small screens */
+            }
+
+            .hero-section .brand-name {
+                font-size: clamp(1.2rem, 5vw, 1.6rem); /* Smaller brand name */
+            }
+
+            .hero-section .cta-button {
+                max-width: calc(100vw - 40px); /* Further adjust for very small screens */
+                padding: 10px 20px;
+            }
+
+            .content-section {
+                padding: 40px 10px; /* Reduce section padding */
+            }
+
+            .testimonial-grid {
+                gap: 15px; /* Smaller gap on very small screens */
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- === HERO BÖLÜMÜ === -->
+    <section class="hero-section">
+        <div class="header-branding">
+            <img src="https://lh7-rt.googleusercontent.com/sitesz/AClOY7qa8BCLfXllZV7Noq-j0UgMf7ykjCIcSs-qEox_x2Bw4gen_p_b-22jIXMldFBKFaQIG7XsL7vh1IKu2yjY_1F2plJJMQL82L4YlgK6WqDJjreF3OHAgie9kic_fW4fts2lvMU02ZL0QDtyHlGBEFktkczKYcCi1aT3Zl8zPmblOEIs8ULS?key=MXQe3UlO6HPLJlj-Fy8uYA"
+                alt="Ayarlı Koç Logosu" class="logo">
+            <span class="brand-name">Ayarlı Koç</span>
+        </div>
+        <div class="hero-content">
+            <h1>LGS ve YKS'de Çocuğunuzun Gerçek Potansiyelini Ortaya Çıkarın.</h1>
+            <p>Sadece 'daha çok' değil, 'daha akıllıca' çalışmasını sağlayacak stratejik yol arkadaşlığı ile tanışın.
+            </p>
+            <a href="javascript:void(0);"
+                onclick="Calendly.initPopupWidget({ url: 'https://calendly.com/iletisim-ayarlikoc/30min' }); return false;"
+                class="cta-button">ÜCRETSİZ STRATEJİ GÖRÜŞMESİ AL</a>
+        </div>
+        <div style="height: 60px; flex-shrink: 0;"></div>
+    </section>
+
+    <!-- === HAKKIMDA BÖLÜMÜ === -->
+    <section id="about-me" class="content-section">
+        <div class="container">
+            <h2>Sistemin İçinden Gelen Bir Uzmanlık</h2>
+            <p>Ben [Müşterinizin Adı]. Yıllarca eğitim sisteminin kalbinde, yüzlerce öğrenciyle çalıştıktan sonra,
+                standart yaklaşımların bireysel potansiyeli nasıl sınırladığını gördüm. Misyonum, her öğrenciyi tek ve
+                biricik kabul eden, tamamen kişiye özel ve sonuç odaklı bir stratejik ortaklık sunmaktır.</p>
+        </div>
+    </section>
+
+    <!-- === BAŞARI HİKAYELERİ BÖLÜMÜ === -->
+    <section id="testimonials" class="content-section">
+        <h2>Başarı Hikayeleri</h2>
+        <div class="testimonial-grid">
+            <!-- KART 1: DOKTOR VELİ -->
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <blockquote>
+                    <p>"[Müşterinin Adı] Bey, kızımın lisedeki öğretmeniydi ve o dönemde bile standartların çok ötesinde
+                        bir rehberdi. Sadece dersi anlatmakla kalmaz, her öğrencinin potansiyelini ve zorlandığı
+                        noktaları bir **teşhis koyar gibi** analiz ederdi. Şimdi bu analitik yeteneğini ve tecrübesini
+                        birebir koçluğa taşıması, çocuklarımızın geleceği için en doğru yatırım."</p>
+                </blockquote>
+                <div class="testimonial-author">
+                    <div class="author-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <path
+                                d="M192 32c0 17.7 14.3 32 32 32c123.7 0 224 100.3 224 224c0 17.7 14.3 32 32 32s32-14.3 32-32C512 114.6 397.4 0 224 0c-17.7 0-32 14.3-32 32zM96 288c-17.7 0-32 14.3-32 32s14.3 32 32 32c53 0 96 43 96 96c0 17.7 14.3 32 32 32s32-14.3 32-32c0-88.4-71.6-160-160-160zM256 96a160 160 0 1 0 0 320 160 160 0 1 0 0-320zM144.4 233.3c-7.9-5.4-18.3-4-25.2 3.6s-6.6 18.8 .6 26.3l80 80c5.3 5.3 12.3 8.3 19.6 8.3s14.4-3 19.6-8.3l144-144c6.3-6.3 6.3-16.5 0-22.8s-16.5-6.3-22.8 0L224 306.7l-79.6-73.4z" />
+                        </svg></div>
+                    <div class="author-details">S. E. - Tıp Doktoru, Çankaya</div>
+                </div>
+            </div>
+            <!-- KART 2: AVUKAT VELİ -->
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <blockquote>
+                    <p>"Öğretmenlik yaptığı okulda oğlumla olan iletişimini ve sorunlara **sistematik yaklaşımını**
+                        yakından takip etme fırsatım oldu. O, klasik bir eğitimciden çok, öğrencinin zayıf ve güçlü
+                        yönlerini belirleyip buna göre bir **savunma stratejisi** hazırlar gibiydi. Bu deneyimini koçluk
+                        hizmetine dönüştürmesi, alınabilecek en mantıklı karardı."</p>
+                </blockquote>
+                <div class="testimonial-author">
+                    <div class="author-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <path
+                                d="M128 17.5C128 8.7 135.6 0 145.7 0c5.8 0 11.3 2.9 14.9 7.5L208 64H304L351.4 7.5c3.6-4.6 9.1-7.5 14.9-7.5c10.1 0 17.7 8.7 17.7 17.5V32h48c3.2 0 6.2 1.3 8.5 3.5l34.3 34.3c2.2 2.2 3.5 5.3 3.5 8.5V128H416V96H384V64H320V96H192V64H128V17.5zM32 176a16 16 0 1 1 32 0 16 16 0 1 1 -32 0zM448 160c-17.7 0-32 14.3-32 32s14.3 32 32 32s32-14.3 32-32s-14.3-32-32-32zM64 240c0-8.8 7.2-16 16-16H432c8.8 0 16 7.2 16 16s-7.2 16-16 16H80c-8.8 0-16-7.2-16-16zm256 64H80c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32H320c17.7 0 32-14.3 32-32V336c0-17.7-14.3-32-32-32zm64-32v96c0 17.7 14.3 32 32 32h16c17.7 0 32-14.3 32-32V304c0-17.7-14.3-32-32-32H416c-17.7 0-32 14.3-32 32zM288 480H224c-17.7 0-32 14.3-32 32s14.3 32 32 32h64c17.7 0 32-14.3 32-32s-14.3-32-32-32z" />
+                        </svg></div>
+                    <div class="author-details">M. K. - Hukukçu, Ankara</div>
+                </div>
+            </div>
+            <!-- KART 3: MÜHENDİS VELİ -->
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <blockquote>
+                    <p>"Oğlumun önünde çalışması gereken çok fazla konu vardı ve bu dağınıklık içinde nereden
+                        başlayacağını bilemiyordu. [Müşterinin Adı] Bey, öğretmeniyken bile tüm süreci analiz ederek son
+                        derece **yapılandırılmış ve mantıklı bir yol haritası** çıkarmıştı. Bir mühendis olarak, bu
+                        kadar **sistematik** bir yaklaşım görmek bize en başından güven verdi."</p>
+                </blockquote>
+                <div class="testimonial-author">
+                    <div class="author-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <path
+                                d="M495.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-15.7 20-28.1 20h-86.9c-3.6-8.9-8-17.5-13.1-25.6l-4.4-7.1c-12.8-20.7-32.9-36.8-56.7-45.3l-12.2-4.4c-8.9-3.2-18.4-3.2-27.3 0l-12.2 4.4c-23.8 8.5-43.9-24.7-56.7-45.3l-4.4-7.1c-5.1 8.1-9.5-16.7-13.1-25.6H44.1c-12.4 0-23.7-8.1-28.1-20c-3.2-8.7-.5-18.4 6.4-24.6l43.3-39.4C64.6 273.1 64 264.8 64 256s.6-17.1 1.7-25.4L22.4 191.2c-6.9-6.2-9.6-15.9-6.4-24.6C20.3 154.7 31.6 146.6 44.1 146.6h86.9c3.6 8.9 8 17.5 13.1 25.6l4.4 7.1c12.8 20.7 32.9 36.8 56.7 45.3l12.2 4.4c8.9 3.2 18.4 3.2 27.3 0l12.2-4.4c23.8-8.5 43.9-24.7 56.7-45.3l4.4-7.1c5.1-8.1 9.5-16.7 13.1-25.6h86.9c12.4 0 23.7 8.1 28.1 20zM256 320a64 64 0 1 0 0-128 64 64 0 1 0 0 128z" />
+                        </svg></div>
+                    <div class="author-details">A. T. - İnşaat Mühendisi, İstanbul</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === SSS (FAQ) BÖLÜMÜ === -->
+    <section id="faq" class="content-section">
+        <h2>Sıkça Sorulan Sorular</h2>
+        <div class="container faq-container">
+            <!-- Soru 1 -->
+            <div class="faq-item">
+                <button class="faq-question">Bireysel öğrenci koçluğu tam olarak nedir? Özel ders veya dershaneden temel
+                    farkı nedir?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Bu çok yerinde bir soru. Sunduğum hizmetin farkını netleştirmek için üç kavramı ayıralım:</p>
+                        <ul>
+                            <li><strong>Özel Ders:</strong> Belirli bir dersteki (örneğin Matematik) <strong>konu
+                                    eksiğini</strong> giderir.</li>
+                            <li><strong>Dershane:</strong> Grup dinamiği içinde <strong>standart bir müfredatı</strong>
+                                sunar.</li>
+                        </ul>
+                        <p>Benim sunduğum bireysel koçluk ise bu ikisinden tamamen <strong>farklı, bütüncül bir
+                                yaklaşımdır.</strong> Amacım, çocuğunuza sadece 'ne' çalışacağını değil, <strong>'nasıl'
+                                çalışacağını</strong> öğretmektir.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Soru 2 -->
+            <div class="faq-item">
+                <button class="faq-question">Piyasada çok sayıda koçluk hizmeti varken, sizi ve yaklaşımınızı farklı
+                    kılan nedir?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Bu, bir ebeveyn olarak sormanız gereken en önemli ve en doğru soru. Cevabım net ve iki
+                            katmanlı: <strong>hizmeti sunan kişi</strong> ve <strong>hizmetin felsefesi.</strong></p>
+                        <p>Benim yaklaşımım, yıllarca eğitim sisteminin tam kalbinde, dershanelerde yüzlerce öğrenciyle
+                            çalışarak edindiğim tecrübenin bir sonucudur. Orada, kalabalık sınıfların 'tek tip'
+                            yaklaşımının en parlak potansiyelleri bile nasıl sınırladığını gördüm.</p>
+                        <p>Bu yüzden, çocuğunuzun geleceğine yapılan en değerli yatırımlardan birini sunmak için kendi
+                            butik koçluk modelimi geliştirdim. Benim farkım; sistemin içinden gelen tecrübeyi, her
+                            öğrenciyi tek ve biricik kabul eden bir hizmet anlayışıyla birleştirmemdir. Size bir ürün
+                            değil, çocuğunuzun geleceği için güvene dayalı bir <strong>stratejik ortaklık</strong>
+                            sunuyorum.</p>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Soru 3 -->
+            <div class="faq-item">
+                <button class="faq-question">Çocuğumun motivasyonu çok düşük ve ders çalışmayı sürekli erteliyor. Bu
+                    konuda somut olarak nasıl yardımcı oluyorsunuz?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Motivasyon eksikliği genellikle hedefsizlikten veya "nasıl başlayacağını bilememekten"
+                            kaynaklanır. Bu durumu aşmak için uyguladığım yöntem şu adımları içerir:</p>
+                        <ul>
+                            <li><strong>Ulaşılabilir Hedefler Belirleme:</strong> Büyük ve göz korkutucu hedefler
+                                yerine, haftalık ve hatta günlük küçük, ulaşılabilir hedefler koyarız. Her başarı, bir
+                                sonraki adım için motivasyon kaynağı olur.</li>
+                            <li><strong>İçsel Motivasyonu Keşfetme:</strong> "Neden başarılı olmak istiyorsun?"
+                                sorusunun cevabını çocuğunuzla birlikte buluruz. Kendi hedeflerini (iyi bir lise,
+                                istediği üniversite bölümü vb.) belirlemesini sağlayarak süreci sahiplenmesini teşvik
+                                ederiz.</li>
+                            <li><strong>Sorumluluk ve Takip:</strong> Düzenli seanslarımızla bir sorumluluk mekanizması
+                                oluştururuz. Bu, dışsal bir baskı değil, hedeflerine ulaşması için destekleyici bir yol
+                                arkadaşlığıdır.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Soru 4 -->
+            <div class="faq-item">
+                <button class="faq-question">Koçluk süreci tam olarak nasıl işliyor? Seanslar ne sıklıkla ve nasıl
+                    yapılıyor?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Süreç son derece yapılandırılmış ve şeffaftır:</p>
+                        <ul>
+                            <li><strong>Tanışma ve Analiz Seansı:</strong> Sizi ve öğrenciyi dinleyerek ihtiyaçları ve
+                                hedefleri anladığımız ilk adımdır.</li>
+                            <li><strong>Stratejik Yol Haritası Oluşturma:</strong> İlk seans sonrası öğrenciye özel bir
+                                çalışma planı, kaynak önerileri ve hedef takvimi oluşturulur.</li>
+                            <li><strong>Haftalık Takip Seansları (45-60 dk):</strong> Genellikle haftada bir kez, online
+                                platformlar (Zoom, Google Meet vb.) üzerinden veya yüz yüze gerçekleştirilir. Bu
+                                seanslarda geçen haftanın değerlendirmesi yapılır, zorlanılan noktalar analiz edilir ve
+                                gelecek haftanın planı netleştirilir.</li>
+                            <li><strong>Anlık İletişim:</strong> Öğrenci, acil bir soru veya motivasyon ihtiyacı
+                                durumunda WhatsApp gibi kanallardan koçuna ulaşabilir.</li>
+                            <li><strong>Aylık Ebeveyn Raporlama:</strong> Ayda bir kez sizinle kısa bir görüşme yaparak
+                                veya detaylı bir rapor göndererek genel ilerleme hakkında sizi bilgilendiririm.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Soru 5 -->
+            <div class="faq-item">
+                <button class="faq-question">Ebeveyn olarak sürece ne kadar dahil olmamız gerekiyor? Yoğun bir iş
+                    tempomuz var.</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Bu endişenizi çok iyi anlıyorum. Sunduğum hizmetin en temel amaçlarından biri, sizin
+                            üzerinizdeki akademik takip yükünü tamamen almaktır.</p>
+                        <p>Süreçteki rol dağılımını şu şekilde özetleyebiliriz:</p>
+                        <p><strong>Benim Sorumluluklarım (Operasyonel Yük):</strong><br>
+                            ✅ Program oluşturma ve haftalık güncelleme<br>
+                            ✅ Kaynak analizi ve doğru kaynaklara yönlendirme<br>
+                            ✅ Günlük ve haftalık motivasyon takibi<br>
+                            ✅ Deneme sınavı analizleri ve strateji geliştirme</p>
+                        <p><strong>Sizin Rolünüz (Stratejik ve Manevi Destek):</strong><br>
+                            ❤️ Çocuğunuza manevi destek sağlamak ve onu teşvik etmek<br>
+                            📊 Ayda bir kez yapacağımız kısa "yönetici özeti" bilgilendirme toplantımıza katılmak</p>
+                        <p>Kısacası, ben süreci yönetirim; siz ise çocuğunuzun pozitif gelişimini ve artan başarısını
+                            huzurla izlersiniz.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Soru 6 -->
+            <div class="faq-item">
+                <button class="faq-question">Bu hizmetin bir "yatırım" olduğunu söylüyorsunuz. Yatırımın Geri Dönüşünü
+                    (ROI) nasıl tanımlıyorsunuz?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Mükemmel bir soru. Bu yatırımın geri dönüşü çok yönlüdür:</p>
+                        <ul>
+                            <li><strong>Akademik Başarı:</strong> En somut getiri, hedeflenen net artışı ve sınav
+                                sonucudur. Bu, çocuğunuzun daha iyi bir lise veya üniversiteye yerleşmesini sağlar.</li>
+                            <li><strong>Doğru Tercih:</strong> Sadece yüksek puan almak değil, aynı zamanda çocuğunuzun
+                                ilgi ve yeteneklerine uygun, onu gelecekte mutlu ve başarılı kılacak doğru bölümü/okulu
+                                seçmesi için de birebir rehberlik ediyorum. Yanlış bir tercihin yıllara ve morale olan
+                                maliyeti çok daha yüksektir.</li>
+                            <li><strong>Kazanılan Beceriler:</strong> Zaman yönetimi, hedef belirleme, stresle başa
+                                çıkma gibi burada kazanılan beceriler, sadece bu sınav için değil, çocuğunuzun tüm
+                                üniversite ve profesyonel hayatı boyunca kullanacağı kalıcı yetkinliklerdir.</li>
+                            <li><strong>Aile Huzuru:</strong> "Ders çalış" tartışmalarının yerini, hedeflerine
+                                odaklanmış, sorumluluk sahibi bir çocuğun getirdiği aile içi huzur alır. Bu, paha
+                                biçilmez bir kazanımdır.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Soru 7 -->
+            <div class="faq-item">
+                <button class="faq-question">Koçluk sürecinde çocuğumun normalin ötesinde bir kaygı, stres veya
+                    psikolojik bir sorun yaşadığını fark ederseniz yaklaşımınız ne olur?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Bu, en çok önem verdiğim ve profesyonel sınırlarımı en net çizdiğim konulardan biridir.</p>
+                        <p>Öncelikle belirtmeliyim ki; benim rolüm, akademik hedeflere odaklı bir strateji ve motivasyon
+                            yol arkadaşlığıdır. Ben bir psikolog veya klinik terapist değilim ve bu uzmanlık alanına
+                            giren konularda teşhis koymam veya terapi uygulamam meslek etiğime tamamen aykırıdır.</p>
+                        <p>Ancak, haftalık düzenli görüşmelerimiz sayesinde, öğrencinin ruh halindeki belirgin
+                            değişiklikleri, akademik süreci olumsuz etkileyen aşırı kaygı, tükenmişlik veya umutsuzluk
+                            gibi durumları fark edecek ilk profesyonellerden biri olurum.</p>
+                        <p>Böyle bir durum gözlemlediğimde uyguladığım protokol nettir ve asla değişmez:</p>
+                        <ul>
+                            <li><strong>Gözlem ve Tespit:</strong> Öncelikle durumu bir süre dikkatle gözlemlerim. Bu
+                                geçici bir sınav stresi mi, yoksa daha derin ve sürekli bir durum mu olduğunu anlamaya
+                                çalışırım.</li>
+                            <li><strong>Gizli ve Direkt İletişim:</strong> Gözlemlerimi, çocuğunuzun mahremiyetine saygı
+                                duyarak, sadece ve sadece sizinle (ebeveynlerle) paylaşırım. Durumu abartmadan veya
+                                teşhis koymadan, sadece bir "profesyonel gözlem" olarak size aktarırım.</li>
+                            <li><strong>Yönlendirme Tavsiyesi:</strong> Bu noktada, çocuğunuzun bir uzmandan (psikolog
+                                veya psikiyatrist) destek almasının faydalı olabileceği yönünde size tavsiyede
+                                bulunurum. Sürecin nasıl ilerleyeceği tamamen sizin kontrolünüzdedir.</li>
+                        </ul>
+                        <p>Eğer bu alanda daha önce çalıştığınız veya güvendiğiniz bir uzman yoksa, talep etmeniz
+                            halinde, daha önceki tecrübelerimden profesyonelliğine güvendiğim, alanında yetkin uzman
+                            isimler önerebilirim. Bu sadece bir kolaylık sağlama amaçlıdır ve aramızda herhangi bir
+                            ticari veya yönlendirme ilişkisi bulunmaz. Benim önceliğim, çocuğunuzun bütüncül iyiliğidir.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Soru 8 -->
+            <div class="faq-item">
+                <button class="faq-question">Koçluk hizmetinden maksimum verimi almak için en uygun başlangıç zamanı
+                    nedir? Sadece sınav senesine mi odaklanıyorsunuz?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Bu çok stratejik bir soru. Kısa cevap: <strong>Hayır, hizmetim sadece sınav senesi ile
+                                sınırlı değil.</strong> Aslında, en kalıcı ve derin etkiyi, sürece sınav senesinden önce
+                            başladığımızda elde ediyoruz.</p>
+                        <p>Bunu, sağlam bir binanın temellerini atmak gibi düşünebilirsiniz. Sınav senesi (8. ve 12.
+                            sınıf), binanın en üst katlarının en hızlı ve en görkemli şekilde inşa edildiği dönemdir.
+                            Ancak bu katların sağlam durabilmesi için önceden atılmış güçlü bir temel gerekir.</p>
+                        <p><strong>Ara Sınıflarda Başlamanın Stratejik Avantajları (Örn: 7. ve 11. Sınıf):</strong><br>
+                            Bu dönemde amacımız "temel inşa etmektir." Sınav senesinin yoğun baskısı henüz
+                            başlamamışken, öğrencinin kalıcı yetkinlikler kazanmasına odaklanırız:</p>
+                        <ul>
+                            <li><strong>Doğru Çalışma Alışkanlıkları:</strong> "Nasıl ders çalışılır?" sorusunun
+                                cevabını deneme-yanılma ile değil, en başından bilimsel metotlarla oturtmak.</li>
+                            <li><strong>Öz-Disiplin ve Zaman Yönetimi:</strong> Planlama ve ertelememe becerisini, bir
+                                zorunluluk olmaktan çıkarıp bir yaşam tarzı haline getirmek.</li>
+                            <li><strong>Öğrenmeyi Öğrenme:</strong> Öğrencinin kendi öğrenme stilini keşfetmesini ve
+                                buna göre verimli not tutma, tekrar yapma gibi teknikler geliştirmesini sağlamak.</li>
+                            <li><strong>Kaygı Yönetimi:</strong> Stresle başa çıkma mekanizmalarını, büyük kaygı dalgası
+                                gelmeden önce inşa etmek.</li>
+                        </ul>
+                        <p><strong>Sınav Senesinde Başlamak (8. ve 12. Sınıf):</strong><br>
+                            Sınav senesinde başlandığında ise stratejimiz değişir. Bu, "temel atmak" değil,
+                            "yoğunlaştırılmış ve sonuç odaklı bir maraton" yönetmektir. Bu süreçte odak noktamız:</p>
+                        <ul>
+                            <li>Stratejik deneme analizleri ile net artışını hedeflemek</li>
+                            <li>Mevcut bilgi birikimini en verimli şekilde kullanmayı sağlamak</li>
+                            <li>Yoğun motivasyon takibi ve psikolojik dayanıklılıkla maratonu tamamlatmak</li>
+                        </ul>
+                        <p>Özetle, her iki durumda da amacım öğrencinin potansiyelini en üst düzeye çıkarmaktır.
+                            Başlangıç zamanı, sadece stratejimizin türünü belirler: <strong>temel inşa etmek mi, yoksa
+                                zirveye oynamak mı?</strong></p>
+                    </div>
+                </div>
+            </div>
+            <!-- Soru 9 -->
+            <div class="faq-item">
+                <button class="faq-question">Sürecin olumlu etkilerini ve somut sonuçlarını ne zaman görmeye
+                    başlarız?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Bu, sonuç odaklı her ebeveynin sorması gereken doğal ve önemli bir soru. Gelişimi iki aşamada
+                            değerlendirmek en doğrusu: <strong>Süreçteki İyileşmeler (Öncü Göstergeler)</strong> ve
+                            <strong>Sonuçlardaki Artış (Nihai Göstergeler)</strong>.</p>
+                        <p><strong>1. Aşama: Temel Atma ve Davranışsal Değişim (Genellikle İlk Ay İçinde)</strong></p>
+                        <p>Sürecin en hızlı görülen etkileri, çocuğunuzun çalışma alışkanlıkları ve motivasyonu üzerinde
+                            olur. İlk birkaç hafta içinde gözlemlemeyi beklemeniz gereken 'öncü göstergeler' şunlardır:
+                        </p>
+                        <ul>
+                            <li><strong>Azalan Erteleme:</strong> Ders çalışmaya başlamak için daha istekli ve daha az
+                                dirençli olması.</li>
+                            <li><strong>Artan Planlılık:</strong> "Bugün ne çalışacağım?" belirsizliği yerine,
+                                yapılandırılmış bir plana sahip olmanın getirdiği rahatlık.</li>
+                            <li><strong>Pozitif İletişim:</strong> Evdeki "ders çalış" tartışmalarının azalması ve
+                                sürecin daha profesyonel bir zemine oturması.</li>
+                            <li><strong>Artan Öz Farkındalık:</strong> Kendi güçlü ve zayıf yönlerini daha net görmeye
+                                başlaması.</li>
+                        </ul>
+                        <p><strong>2. Aşama: Akademik İvmelenme ve Sonuçlara Yansıma (Takip Eden Aylar)</strong></p>
+                        <p>Sağlam atılan bu temellerin, netlere ve sınav sonuçlarına yansıması zaman alır. Bu, bir
+                            sporcunun antrenmanlarının yarış gününde sonuç vermesi gibidir. Bu aşamada gözlemleyeceğimiz
+                            'nihai göstergeler' şunlardır:</p>
+                        <ul>
+                            <li>Deneme sınavlarındaki net artışları</li>
+                            <li>Okuldaki yazılı notlarında gözle görülür iyileşme</li>
+                            <li>Konulara hakimiyetin getirdiği özgüven artışı</li>
+                        </ul>
+                        <p><strong>En Önemli Faktör:</strong> Her öğrencinin yolculuğu kendine özgüdür. Bu süreçlerin
+                            hızı; öğrencinin başlangıç noktasına, programa olan bağlılığına ve bireysel öğrenme hızına
+                            göre değişiklik gösterecektir. Benim görevim, bu süreci her öğrenci için en verimli hale
+                            getirmektir.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Soru 10 -->
+            <div class="faq-item">
+                <button class="faq-question">Sunduğunuz bu bireysel koçluk hizmetinin yatırım bedeli nedir ve ödeme
+                    seçenekleriniz nelerdir?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Sunduğum koçluk hizmeti, standart bir paket programdan ziyade, çocuğunuzun hedeflerine ve
+                            ihtiyaçlarına göre şekillenen butik ve stratejik bir ortaklıktır. Bu nedenle yatırım bedeli,
+                            çalışmanın kapsamına ve süresine göre belirlenir.</p>
+                        <p>Fiyatlandırma modelim son derece şeffaf ve yapılandırılmıştır. Genellikle iki ana seçenek
+                            üzerinden ilerliyoruz:</p>
+                        <p><strong>1. Akademik Yıl Paketi (En Kapsamlı ve Avantajlı Seçenek):</strong><br>
+                            Bu paket, sınav senesinin başından sonuna kadar olan tüm süreci kapsar. En bütüncül
+                            yaklaşımı sunar ve birim seans maliyeti açısından en ekonomiktir. Erken başlayıp sağlam bir
+                            temel atmak isteyen aileler için idealdir.</p>
+                        <p><strong>2. Dönemlik Paketler (3 Aylık Stratejik Sprintler):</strong><br>
+                            Bu paketler, belirli bir hedefe (örneğin ilk dönem konularını bitirme, deneme netlerini X
+                            seviyesine çıkarma vb.) odaklanan 3 aylık yoğun çalışma dönemlerini kapsar. Süreci denemek
+                            veya belirli bir dönemde yoğun destek almak isteyen aileler için uygundur.</p>
+                        <p><strong>Süreç Nasıl İşler?</strong><br>
+                            Size en uygun çözümü ve net yatırım bedelini belirlemek için ücretsiz tanışma ve strateji
+                            seansımızda bir araya geliriz. Bu seansta:</p>
+                        <ul>
+                            <li>Çocuğunuzun mevcut durumunu, hedeflerini ve ihtiyaçlarını derinlemesine anlarım.</li>
+                            <li>Bu ihtiyaçlara yönelik en uygun çalışma paketini (Akademik Yıl veya Dönemlik) birlikte
+                                belirleriz.</li>
+                            <li>Seçilen paketin net yatırım bedelini ve sunduğum esnek ödeme seçeneklerini (örneğin
+                                aylık taksitlendirme) tüm detaylarıyla size sunarım.</li>
+                        </ul>
+                        <p>Amacım, bütçenizi değil, çocuğunuzun ihtiyacını temel alan en doğru ve şeffaf çözümü
+                            bulmaktır. Net bir teklif almak için lütfen ilk görüşme randevunuzu oluşturun.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Diğer sorularınızı bu formatta ekleyebilirsiniz -->
+
+        </div>
+    </section>
+
+    <!-- === SCRIPTS === -->
+    <!-- Calendly Pop-up için gerekli JS dosyası -->
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+
+    <!-- SSS bölümünün açılıp kapanmasını sağlayan JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const faqContainer = document.querySelector('.faq-container');
+            faqContainer.addEventListener('click', function (e) {
+                const questionButton = e.target.closest('.faq-question');
+                if (!questionButton) return;
+
+                const currentItem = questionButton.parentElement;
+                const answer = currentItem.querySelector('.faq-answer');
+                const isActive = currentItem.classList.contains('active');
+
+                // Close all other items
+                faqContainer.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== currentItem) {
+                        item.classList.remove('active');
+                        item.querySelector('.faq-answer').style.maxHeight = null;
+                    }
+                });
+
+                // Toggle the clicked item
+                if (!isActive) {
+                    currentItem.classList.add('active');
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                } else {
+                    currentItem.classList.remove('active');
+                    answer.style.maxHeight = null;
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
